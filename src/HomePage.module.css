@@ -15,6 +15,61 @@ h1 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.activities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 83%;
+  margin: 0 auto;
+  gap: 30px;
+  padding: 50px 0;
+}
+
+
+.activityCard {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  width: 100%;
+}
+
+.activityCard:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.activityImage {
+  width: 100%;
+  height: auto;
+}
+
+.activityUndercard {
+  background-color: #f7f7f7;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.activitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+
+.activityText {
+  width: 50%;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 
 .overlay {
   position: absolute;
@@ -35,6 +90,8 @@ h1 {
   min-height: 100%;
   object-fit: cover;
 }
+
+
 
 .wrapper {
   position: relative;

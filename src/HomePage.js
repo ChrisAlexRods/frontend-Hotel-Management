@@ -7,13 +7,21 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const HomePage = () => {
   const activities = [
-    'Swimming Pool',
-    'Spa',
-    'Fitness Center',
-    'Tennis Court',
-    'Golf Course',
-    'Game Room',
+    { title: 'Swimming Pool', imageSrc: `${process.env.PUBLIC_URL}/1.jpg` },
+    { title: 'Spa', imageSrc: `${process.env.PUBLIC_URL}/2.jpg` },
+    { title: 'Fitness Center', imageSrc: `${process.env.PUBLIC_URL}/3.jpg` },
+    { title: 'Tennis Court', imageSrc: `${process.env.PUBLIC_URL}/4.jpg` },
+    { title: 'Golf Course', imageSrc: `${process.env.PUBLIC_URL}/5.jpg` },
+    { title: 'Game Room', imageSrc: `${process.env.PUBLIC_URL}/6.jpg` },
   ];
+
+  const ActivityCard = ({ imageSrc, title }) => (
+    <div className={styles.activityCard}>
+      <img src={imageSrc} alt={title} className={styles.activityImage} />
+      <div className={styles.activityUndercard}>{title}</div>
+    </div>
+  );
+
 
   const menu = [
     {
@@ -58,13 +66,16 @@ const HomePage = () => {
       </section>
 
       <section className={styles.activities}>
-        <h2>Recreational Activities</h2>
-        <ul>
-          {activities.map((activity, index) => (
-            <li key={index}>{activity}</li>
-          ))}
-        </ul>
-      </section>
+  <h2>Recreational Activities</h2>
+  <div className={styles.activitiesGrid}>
+    {activities.map((activity, index) => (
+      <div key={index}>
+        <ActivityCard imageSrc={activity.imageSrc} title={activity.title} />
+      </div>
+    ))}
+  </div>
+</section>
+
 
       <section className={styles.images}>
         <div className={styles.wrapper}>
