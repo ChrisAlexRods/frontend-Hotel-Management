@@ -66,23 +66,6 @@ const HomePage = () => {
         </ul>
       </section>
 
-      <section className={styles.menu}>
-        <h2>Breakfast Menu</h2>
-        {menu.map((category, index) => (
-          <div key={index}>
-            <h3>{category.category}</h3>
-            <ul>
-              {category.items.map((item, i) => (
-                <li key={i}>
-                  {item.name} - ${item.price}
-                  {item.description && <span>({item.description})</span>}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </section>
-
       <section className={styles.images}>
         <div className={styles.wrapper}>
           <div className={styles.stripe}>Always there with just what you need</div>
@@ -115,6 +98,22 @@ const HomePage = () => {
         </div>
       </section>
 
+      <section className={styles.menu}>
+        <h2>Breakfast Menu</h2>
+        {menu.map((category, index) => (
+          <div key={index}>
+            <h3>{category.category}</h3>
+            <ul>
+              {category.items.map((item, i) => (
+                <li key={i}>
+                  {item.name} - ${item.price}
+                  {item.description && <span>({item.description})</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
 
       <section className={styles.description}>
         <p>
