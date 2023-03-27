@@ -33,7 +33,7 @@ const HomePage = () => {
     },
     {
       category: 'EGGS', items: [
-        { name: 'Eggs Benedict', price: 16, description: '(Poached eggs, Canadian bacon, English muffin, hollandaise sauce)' },
+        { name: 'Eggs Benedict', price: 16, description: '(Poached eggs, Canadian bacon, English muffin, hollandaise sauce)', imageSrc: `${process.env.PUBLIC_URL}/ben.jpg` },
         { name: 'Omelette', price: 15, description: '(Choice of cheese, vegetables, and meat)' },
         { name: 'Frittata', price: 14, description: '(Choice of vegetables and cheese)' },
       ]
