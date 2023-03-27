@@ -245,3 +245,65 @@ h1 {
     text-align: center;
     background-color: #f3f3f3;
   }
+
+  .menuGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+  }
+
+  .menuItems {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .menuItems {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .menuItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+
+  .menuItem:last-child {
+    border-bottom: none;
+  }
+
+  .mimageContainer {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    margin-right: 20px;
+  }
+
+  .menuImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .menuItemInfo {
+    flex: 1;
+  }
+
+  .menuItemName {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .menuItemDescription {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .menuItemPrice {
+    font-size: 20px;
+    font-weight: bold;
+  }
