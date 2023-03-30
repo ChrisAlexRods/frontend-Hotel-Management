@@ -5,6 +5,7 @@ import BookingPage from './BookingPage';
 import EventsPage from './EventsPage';
 import NavbarComponent from './NavbarComponent';
 import FooterComponent from './FooterComponent';
+import BookingForm from './BookingPage'
 
 function App() {
   return (
