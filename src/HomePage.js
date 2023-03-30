@@ -12,7 +12,7 @@ const HomePage = () => {
     { title: 'Fitness Center', imageSrc: `${process.env.PUBLIC_URL}/gym.jpg` },
     { title: 'Tennis Court', imageSrc: `${process.env.PUBLIC_URL}/ten.jpg` },
     { title: 'Golf Course', imageSrc: `${process.env.PUBLIC_URL}/golf.jpg` },
-    { title: 'Game Room', imageSrc: `${process.env.PUBLIC_URL}/game.jpg` },
+    { title: 'Gift Shop', imageSrc: `${process.env.PUBLIC_URL}/giftshop.jpg` },
   ];
 
   const ActivityCard = ({ imageSrc, title }) => (
