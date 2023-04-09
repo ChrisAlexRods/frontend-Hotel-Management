@@ -1,0 +1,25 @@
+.booking-list-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .booking-list-container {
+    flex: 1;
+    padding: 50px 0;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table thead {
+    background-color: #f5f5dc;
+  }
+
+  .table th, .table td {
+    padding: 15px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
