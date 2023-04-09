@@ -1,0 +1,14 @@
+body {
+  background-color: #f5f5dc; /* Light brown background color */
+  min-height: 100vh;
+}
+
+.booking-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.booking-page-content {
+  flex: 1;
+}

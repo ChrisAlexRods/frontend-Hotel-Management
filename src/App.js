@@ -12,15 +12,18 @@ function App() {
   return (
     <Router>
       <NavbarComponent />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/booking" element={<BookingPage />} />
-        <Route path="/events" element={<EventsPage />} />
-        <Route path="/booking-list" element={<BookingList />} />
-      </Routes>
-      <FooterComponent />
+      <div id="app" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/booking" element={<BookingPage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/booking-list" element={<BookingList />} />
+        </Routes>
+        <FooterComponent />
+      </div>
     </Router>
   );
 }
+
 
 export default App;
