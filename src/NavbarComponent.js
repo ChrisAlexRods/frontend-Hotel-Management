@@ -13,6 +13,7 @@ const NavbarComponent = () => {
           <Nav.Link as={Link} to="/booking">Booking</Nav.Link>
           <Nav.Link as={Link} to="/events">Events</Nav.Link>
           <Nav.Link as={Link} to="/booking-list">Booking List</Nav.Link>
+          <Nav.Link as={Link} to="/event-form">Create Event</Nav.Link> {/* Add a new Nav.Link for EventForm */}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

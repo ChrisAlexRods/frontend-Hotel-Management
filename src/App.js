@@ -7,6 +7,7 @@ import NavbarComponent from './NavbarComponent';
 import FooterComponent from './FooterComponent';
 import BookingForm from './BookingPage'
 import BookingList from './BookingList';
+import EventForm from './EventForm'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/booking-list" element={<BookingList />} />
+          <Route path="/event-form" element={<EventForm />} />
         </Routes>
         <FooterComponent />
       </div>
