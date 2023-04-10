@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './EventFormStyles.css';
 
-const EventForm = () => {
+const EventForm = (props) => {
+  const { eventToEdit, setEventToEdit } = props;
   const [eventData, setEventData] = useState({
     name: '',
     start_date: '',
@@ -9,6 +10,13 @@ const EventForm = () => {
     location: '',
     description: ''
   });
+
+  useEffect(() => {
+    if (eventToEdit) {
+      setEventData(eventToEdit);
+    }
+  }, [eventToEdit]);
+
   const [success, setSuccess] = useState(false);
 
   const handleInputChange = e => {
@@ -19,28 +27,37 @@ const EventForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    fetch('/api/events/', {
-      method: 'POST',
+    const method = eventToEdit ? 'PUT' : 'POST';
+    const url = eventToEdit ? `/api/events/${eventToEdit.id}/` : '/api/events/';
+
+    fetch(url, {
+      method: method,
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(eventData)
     })
-      .then(response => {
-        if (response.ok) {
-          setSuccess(true);
-          setEventData({
-            name: '',
-            start_date: '',
-            end_date: '',
-            location: '',
-            description: ''
-          });
-        } else {
-          throw new Error('Something went wrong');
+    .then(response => {
+      if (response.ok) {
+        setSuccess(true);
+        setEventData({
+          name: '',
+          start_date: '',
+          end_date: '',
+          location: '',
+          description: ''
+        });
+        if (eventToEdit) {
+          setEventToEdit(null);
         }
-      })
-      .catch(error => console.error(error));
+        if (props.onRefreshEvents) {
+          props.onRefreshEvents();
+        }
+      } else {
+        throw new Error('Something went wrong');
+      }
+    })
+    .catch(error => console.error(error));
   };
 
   return (
@@ -109,7 +126,7 @@ const EventForm = () => {
               ></textarea>
             </div>
             <button type="submit" className="btn btn-primary">
-              Submit
+              {eventToEdit ? 'Update' : 'Submit'}
             </button>
           </form>
         </div>
@@ -117,5 +134,6 @@ const EventForm = () => {
     </main>
   );
 };
+
 
 export default EventForm;
