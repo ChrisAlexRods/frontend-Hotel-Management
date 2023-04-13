@@ -307,3 +307,34 @@ h1 {
     font-size: 20px;
     font-weight: bold;
   }
+
+  /* Add this to HomePage.module.css */
+.bookingFormContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bookingForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.bookingForm input {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.bookingForm button {
+  margin-top: 1rem;
+}
