@@ -10,7 +10,6 @@ const NavbarComponent = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link as={Link} to="/">Home</Nav.Link>
-          <Nav.Link as={Link} to="/booking">Booking</Nav.Link>
           <Nav.Link as={Link} to="/booking-list">Booking List</Nav.Link>
           <Nav.Link as={Link} to="/event-form">Create Event</Nav.Link>
           <Nav.Link as={Link} to="/events">Events</Nav.Link>

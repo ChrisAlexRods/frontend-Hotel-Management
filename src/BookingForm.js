@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './HomePage.module.css';
+import styles from './BookingForm.module.css';
 
 const BookingForm = () => {
   const [bookingData, setBookingData] = useState({
@@ -44,47 +44,56 @@ const BookingForm = () => {
   };
 
   return (
-    <form className={styles.bookingForm} onSubmit={handleSubmit}>
-      <input
-        type="date"
-        name="start_date"
-        value={bookingData.start_date}
-        onChange={handleInputChange}
-        required
-      />
-      <input
-        type="date"
-        name="end_date"
-        value={bookingData.end_date}
-        onChange={handleInputChange}
-        required
-      />
-      <input
-        type="text"
-        name="room_type"
-        value={bookingData.room_type}
-        onChange={handleInputChange}
-        placeholder="Room Type"
-        required
-      />
-      <input
-        type="text"
-        name="guest_name"
-        value={bookingData.guest_name}
-        onChange={handleInputChange}
-        placeholder="Guest Name"
-        required
-      />
-      <input
-        type="email"
-        name="guest_email"
-        value={bookingData.guest_email}
-        onChange={handleInputChange}
-        placeholder="Guest Email"
-        required
-      />
-      <button type="submit">Book Now</button>
-    </form>
+    <div className={styles.bookingFormContainer}>
+      <form className={styles.bookingForm} onSubmit={handleSubmit}>
+        <input
+          type="date"
+          name="start_date"
+          value={bookingData.start_date}
+          onChange={handleInputChange}
+          className={styles.formInput}
+          required
+        />
+        <input
+          type="date"
+          name="end_date"
+          value={bookingData.end_date}
+          onChange={handleInputChange}
+          className={styles.formInput}
+          required
+        />
+        <input
+          type="text"
+          name="room_type"
+          value={bookingData.room_type}
+          onChange={handleInputChange}
+          className={styles.formInput}
+          placeholder="Room Type"
+          required
+        />
+        <input
+          type="text"
+          name="guest_name"
+          value={bookingData.guest_name}
+          onChange={handleInputChange}
+          className={styles.formInput}
+          placeholder="Guest Name"
+          required
+        />
+        <input
+          type="email"
+          name="guest_email"
+          value={bookingData.guest_email}
+          onChange={handleInputChange}
+          className={styles.formInput}
+          placeholder="Guest Email"
+          required
+        />
+        <button type="submit" className={styles.submitButton}>
+          Book Now
+        </button>
+      </form>
+    </div>
   );
 };
 
