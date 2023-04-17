@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './EventFormStyles.css';
+import CarouselSection from './CarouselSection';
 
 const EventForm = (props) => {
   const { eventToEdit, setEventToEdit } = props;
@@ -61,77 +62,82 @@ const EventForm = (props) => {
   };
 
   return (
-    <main className="event-page-content">
-      <div className="container">
-        <div className="event-form-container">
-          <h2>Event Form</h2>
-          {success ? (
-            <div className="alert alert-success" role="alert">
-              Event submitted successfully.
+    <>
+      <main className="event-page-content">
+        <CarouselSection />
+        <div className="form-overlay">
+          <div className="container">
+            <div className="event-form-container">
+              <h2>Event Form</h2>
+              {success ? (
+                <div className="alert alert-success" role="alert">
+                  Event submitted successfully.
+                </div>
+              ) : null}
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label htmlFor="name">Event Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="name"
+                    name="name"
+                    value={eventData.name}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="start_date">Start Date</label>
+                  <input
+                    type="date"
+                    className="form-control"
+                    id="start_date"
+                    name="start_date"
+                    value={eventData.start_date}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="end_date">End Date</label>
+                  <input
+                    type="date"
+                    className="form-control"
+                    id="end_date"
+                    name="end_date"
+                    value={eventData.end_date}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="location">Location</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="location"
+                    name="location"
+                    value={eventData.location}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="description">Description</label>
+                  <textarea
+                    className="form-control"
+                    id="description"
+                    name="description"
+                    value={eventData.description}
+                    onChange={handleInputChange}
+                  ></textarea>
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  {eventToEdit ? 'Update' : 'Submit'}
+                </button>
+              </form>
             </div>
-          ) : null}
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Event Name</label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                name="name"
-                value={eventData.name}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="start_date">Start Date</label>
-              <input
-                type="date"
-                className="form-control"
-                id="start_date"
-                name="start_date"
-                value={eventData.start_date}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="end_date">End Date</label>
-              <input
-                type="date"
-                className="form-control"
-                id="end_date"
-                name="end_date"
-                value={eventData.end_date}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="location">Location</label>
-              <input
-                type="text"
-                className="form-control"
-                id="location"
-                name="location"
-                value={eventData.location}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="description">Description</label>
-              <textarea
-                className="form-control"
-                id="description"
-                name="description"
-                value={eventData.description}
-                onChange={handleInputChange}
-              ></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary">
-              {eventToEdit ? 'Update' : 'Submit'}
-            </button>
-          </form>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 };
 
