@@ -58,16 +58,22 @@ const EventsPage = () => {
         ) : (
           <ul>
             {events.map(event => (
-              <li key={event.id}>
-                <h2>{event.name}</h2>
-                <p>Start Date: {event.start_date}</p>
-                <p>End Date: {event.end_date}</p>
-                <p>Location: {event.location}</p>
-                <p>Description: {event.description}</p>
-                <button onClick={() => setEventToEdit(event)}>Edit</button>
-                <button onClick={() => deleteEvent(event.id)}>Delete</button>
-              </li>
-            ))}
+  <li key={event.id}>
+    <h2>{event.name}</h2>
+    <p>Start Date: {event.start_date}</p>
+    <p>End Date: {event.end_date}</p>
+    <p>Location: {event.location}</p>
+    <p>Description: {event.description}</p>
+    {event.picture_url && (
+      <div>
+        <img src={event.picture_url} alt={event.name} />
+      </div>
+    )}
+    <button onClick={() => setEventToEdit(event)}>Edit</button>
+    <button onClick={() => deleteEvent(event.id)}>Delete</button>
+  </li>
+))}
+
           </ul>
         )}
       </div>

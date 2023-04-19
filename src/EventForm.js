@@ -9,7 +9,8 @@ const EventForm = (props) => {
     start_date: '',
     end_date: '',
     location: '',
-    description: ''
+    description: '',
+    picture_url: '' // Add the new state property here
   });
 
   useEffect(() => {
@@ -46,7 +47,8 @@ const EventForm = (props) => {
           start_date: '',
           end_date: '',
           location: '',
-          description: ''
+          description: '',
+          picture_url: '' // Reset the picture_url value
         });
         if (eventToEdit) {
           setEventToEdit(null);
@@ -129,6 +131,18 @@ const EventForm = (props) => {
                     onChange={handleInputChange}
                   ></textarea>
                 </div>
+                {/* Picture URL form group */}
+                <div className="form-group">
+                  <label htmlFor="picture_url">Picture URL</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="picture_url"
+                    name="picture_url"
+                    value={eventData.picture_url}
+                    onChange={handleInputChange}
+                  />
+                </div>
                 <button type="submit" className="btn btn-primary">
                   {eventToEdit ? 'Update' : 'Submit'}
                 </button>
@@ -139,6 +153,7 @@ const EventForm = (props) => {
       </main>
     </>
   );
+
 };
 
 
