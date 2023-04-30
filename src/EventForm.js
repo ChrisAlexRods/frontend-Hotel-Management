@@ -39,28 +39,28 @@ const EventForm = (props) => {
       },
       body: JSON.stringify(eventData)
     })
-    .then(response => {
-      if (response.ok) {
-        setSuccess(true);
-        setEventData({
-          name: '',
-          start_date: '',
-          end_date: '',
-          location: '',
-          description: '',
-          picture_url: '' // Reset the picture_url value
-        });
-        if (eventToEdit) {
-          setEventToEdit(null);
+      .then(response => {
+        if (response.ok) {
+          setSuccess(true);
+          setEventData({
+            name: '',
+            start_date: '',
+            end_date: '',
+            location: '',
+            description: '',
+            picture_url: '' // Reset the picture_url value
+          });
+          if (eventToEdit) {
+            setEventToEdit(null);
+          }
+          if (props.onRefreshEvents) {
+            props.onRefreshEvents();
+          }
+        } else {
+          throw new Error('Something went wrong');
         }
-        if (props.onRefreshEvents) {
-          props.onRefreshEvents();
-        }
-      } else {
-        throw new Error('Something went wrong');
-      }
-    })
-    .catch(error => console.error(error));
+      })
+      .catch(error => console.error(error));
   };
 
   return (
@@ -142,7 +142,21 @@ const EventForm = (props) => {
                     value={eventData.picture_url}
                     onChange={handleInputChange}
                   />
+                  {eventData.picture_url && (
+                    <div className="mt-3">
+                      <img
+                        src={eventData.picture_url}
+                        alt="Event"
+                        style={{
+                          maxWidth: '100%',
+                          maxHeight: '200px',
+                          objectFit: 'contain',
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
+
                 <button type="submit" className="btn btn-primary">
                   {eventToEdit ? 'Update' : 'Submit'}
                 </button>
