@@ -44,40 +44,56 @@ const EventsPage = () => {
   };
 
   return (
-      <div className="events-page-content">
-        <h1>Meetings and Events Page</h1>
-        {eventToEdit && (
-          <EventForm
-            eventToEdit={eventToEdit}
-            setEventToEdit={setEventToEdit}
-            onRefreshEvents={refreshEvents}
-          />
-        )}
-        {events.length === 0 ? (
-          <p>No events found.</p>
-        ) : (
-          <ul>
-            {events.map(event => (
-  <li key={event.id}>
-    <h2>{event.name}</h2>
-    <p>Start Date: {event.start_date}</p>
-    <p>End Date: {event.end_date}</p>
-    <p>Location: {event.location}</p>
-    <p>Description: {event.description}</p>
-    {event.picture_url && (
-      <div>
-        <img src={event.picture_url} alt={event.name} />
-      </div>
-    )}
-    <button onClick={() => setEventToEdit(event)}>Edit</button>
-    <button onClick={() => deleteEvent(event.id)}>Delete</button>
-  </li>
-))}
-
-          </ul>
-        )}
-      </div>
+    <div className="events-page-content">
+      <h1>Meetings and Events Page</h1>
+      {eventToEdit && (
+        <EventForm
+          eventToEdit={eventToEdit}
+          setEventToEdit={setEventToEdit}
+          onRefreshEvents={refreshEvents}
+        />
+      )}
+      {events.length === 0 ? (
+        <p>No events found.</p>
+      ) : (
+        <div className="row">
+          {events.map(event => (
+            <div key={event.id} className="col-md-2 event-card-wrapper">
+              <div className="card">
+                <h2 className="card-header">{event.name}</h2>
+                {event.picture_url && (
+                  <img
+                    className="card-img-top"
+                    src={event.picture_url}
+                    alt={event.name}
+                  />
+                )}
+                <div className="card-body">
+                  <p>Start Date: {event.start_date}</p>
+                  <p>End Date: {event.end_date}</p>
+                  <p>Location: {event.location}</p>
+                  <p>Description: {event.description}</p>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => setEventToEdit(event)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => deleteEvent(event.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
+
 
 };
 

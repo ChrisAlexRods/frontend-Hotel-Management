@@ -1,4 +1,8 @@
 .events-page-content {
-    flex: 1;
-    padding: 50px 0;
-  }
+  flex: 1;
+  padding: 50px 0;
+}
+
+.event-card-wrapper {
+  margin-bottom: 20px;
+}
