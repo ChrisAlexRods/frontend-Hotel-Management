@@ -1,9 +1,7 @@
 .events-page-content {
   flex: 1;
   padding: 50px 0;
-  background-color: rgba(0, 0, 0, 0.1); /* Light black background */
-  /* Or use this for a dark brown background: */
-  /* background-color: #3C2A1D; */
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 
