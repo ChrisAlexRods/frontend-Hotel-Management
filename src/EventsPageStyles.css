@@ -1,10 +1,17 @@
 .events-page-content {
   flex: 1;
   padding: 50px 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(to right, rgba(63, 81, 181, 0.1), rgba(0, 0, 0, 0.1));
 }
 
+.events-page-content h1 {
+  text-align: center;
+}
 
 .event-card-wrapper {
-  margin-bottom: 20px;
+  margin: 0 15px 20px 15px;
+}
+
+.card {
+  border-radius: 10px;
 }
